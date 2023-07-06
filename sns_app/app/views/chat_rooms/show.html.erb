@@ -36,7 +36,7 @@
                             <%= link_to message.user do %>
                                 <div class="message-user">
                                     <%= image_tag "/user_images/#{message.user.image_name}" %>
-                                    <%= message.user.name %>
+                                    <div class="message-user-name"><%= message.user.name %></div>
                                 </div>
                             <% end %>
                             <p><%= message.content %></p>
@@ -47,7 +47,7 @@
                             <%= link_to message.user do %>
                                 <div class="message-user">
                                     <%= image_tag "/user_images/#{message.user.image_name}" %>
-                                    <%= message.user.name %>
+                                    <div class="message-user-name"><%= message.user.name %></div>
                                 </div>
                             <% end %>
                         </div>

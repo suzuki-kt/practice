@@ -5,8 +5,10 @@
         <%= image_tag "/user_images/#{@user.image_name}" %>
         <h2><%= @user.name %></h2>
         <% if @current_user == @user %>
-        <%= link_to "編集", edit_user_path(@user) %> |
-        <%= link_to "削除", @user, data: { "turbo-method": :delete }%>
+        <div>
+          <%= link_to "編集", edit_user_path(@user) %> |
+          <%= link_to "削除", @user, data: { "turbo-method": :delete }%>
+        </div>
       <% end %>
       </div>
       <div class="user-right">
