@@ -129,6 +129,8 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.2-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.15.2-x86_64-linux)
+      racc (~> 1.4)
     public_suffix (5.0.1)
     racc (1.6.2)
     rack (2.2.7)
@@ -167,7 +169,7 @@ GEM
     reline (0.3.5)
       io-console (~> 0.5)
     rexml (3.2.5)
-    rubyzip (2.3.2)
+    rubyzip (2.3.0)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -188,6 +190,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3-x86_64-darwin)
+    sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.2)
@@ -221,6 +224,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -229,6 +233,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   rails (~> 7.0.4, >= 7.0.4.3)
+  rubyzip (= 2.3.0)
   sassc-rails
   selenium-webdriver
   sprockets-rails
@@ -241,7 +246,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.4p223
 
 BUNDLED WITH
    2.4.13
