@@ -1,0 +1,12 @@
+<div class="main">
+  <div class="container">
+    <%= render @post %>
+
+    <div>
+      <% if @post.user_id == @current_user.id %>
+        <%= link_to "投稿編集", edit_post_path(@post) %>
+        <%= button_to "投稿削除", @post, method: :delete %>
+      <% end %>
+    </div>
+  </div>
+</div>

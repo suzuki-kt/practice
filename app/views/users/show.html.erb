@@ -1,0 +1,77 @@
+<div class="main user-show">
+  <div class="container">
+    <div class ="user">
+      <div class="user-left">
+        <%= image_tag "/user_images/#{@user.image_name}" %>
+        <h2><%= @user.name %></h2>
+        <% if @current_user == @user %>
+        <div>
+          <%= link_to "編集", edit_user_path(@user) %> |
+          <%= link_to "削除", @user, data: { "turbo-method": :delete }%>
+        </div>
+      <% end %>
+      </div>
+      <div class="user-right">
+        <ul class="user-follows">
+          <% user_id = @user.id %>
+          <li>フォロー:<%= link_to @user.followees.count, show_followee_path(@user) %></li>
+          <li>フォロワー:<%= link_to @user.followers.count, show_follower_path(@user) %></li>
+        </ul>
+        <p><%= @user.profile %></p>
+        <div class="user-bottom">
+          <% if @current_user == @user %>
+            <%= button_to "新規投稿", new_post_path, method: :get %>
+            <%= link_to "ログアウト", logout_path, data: { "turbo-method": :post } %>
+          <% else %>
+            <%= relationship_button(@user) %>
+            <%= chat_room_button(@user) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div>  
+      
+    </div>  
+    <ul  class="user-tabs">
+      <li>
+        <% if @tab == "post" %>
+          <a class="active">投稿</a></li>
+        <% else %>
+          <%= link_to "投稿", @user %> 
+        <% end %>
+      </li>
+      <li>
+        <% if @tab == "like" %>
+          <a class="active">いいね！</a>
+        <% else %>
+          <%= link_to "いいね！", like_path(@user) %>
+        <% end %>
+      </li>
+      <li>
+        <% if @tab == "followee" %>
+          <a class="active">フォロー</a>
+        <% else %>
+          <%= link_to "フォロー", show_followee_path(@user) %>
+        <% end %>
+      </li>
+      <li>
+        <% if @tab == "follower" %>
+          <a class="active">フォロワー</a>
+        <% else %>
+          <%= link_to "フォロワー", show_follower_path(@user) %>
+        <% end %> 
+      </li>
+    </ul>
+
+    <% if @tab ==  "post" || @tab == "like" %>
+      <% @posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+    <% else %>
+      <% @users.each do |user| %>
+        <%= render user %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

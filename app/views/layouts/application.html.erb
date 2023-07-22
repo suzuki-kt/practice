@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SnsApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div>
+    <div class="main-tabs">
+      <ul class="tabs-left">
+        <% if @current_user == nil %>
+          <li><%= link_to "ログイン", login_path %></li>
+          <li><%= link_to "新規登録", new_user_path %></li>
+          </ul>
+        <% else %>
+          <li><%= link_to "ユーザー一覧", users_path %></li>
+          <li><%= link_to "チャット一覧", chat_rooms_path(@current_user) %></li>
+          <li><%= link_to "投稿一覧", posts_path %></li>
+          </ul>
+          <div class="tabs-right">
+            <%= link_to @current_user do %>
+              <%= image_tag "/user_images/#{@current_user.image_name}" %>
+              <p><%= @current_user.name %></p>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+
+
+    <a style="color: green"><%= notice %></a>
+    <div>
+    <br>
+    <%= yield %>
+  </body>
+</html>

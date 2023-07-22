@@ -1,0 +1,13 @@
+<div class="main" >
+  <div class="container" >
+    <div class="post-tabs"
+      <h1>投稿一覧</h1>
+      <%= button_to "新規投稿", new_post_path, method: :get %>
+    </div>
+    <div id="posts" >
+      <% @posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+    </div>
+  </div>
+</div>
